@@ -2,14 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Heeey Wagwan</title>
+    <title>My Cool Website</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #00d2ff;
+            background: linear-gradient(to right, #00d2ff, #3a7bd5);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        #message {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+    </style>
 </head>
-    
 <body>
-    <h1>Heeey Wagwan</h1>
-    <script>var num = 4;
-            document.write(num);</script>
-    <p>MADE BY DAMMY</p>
-    <h2>WINGMAN</h2>
+
+    <h1>Welcome to My Cool Website</h1>
+
+    <button onclick="showMessage()">Click Me</button>
+
+    <div id="message">You clicked the button 🎉</div>
+
+    <script>
+        function showMessage() {
+            const msg = document.getElementById("message");
+            msg.style.opacity = 1;
+        }
+    </script>
+
 </body>
 </html>
