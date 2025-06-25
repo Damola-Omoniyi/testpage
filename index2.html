@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TESTING</title>
+</head>
+<body>
+<h1> SHOW DATA</h1>
+<div id = "data-container"></div>
+
+<script>
+     fetch('http://localhost:8000/api/get-data/')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('data-container');
+        data.forEach(item => {
+          const div = document.createElement('div');
+          div.innerText = JSON.stringify(item); // or format it nicely
+          container.appendChild(div);
+        });
+      })
+      .catch(err => console.error('Error:', err));
+</script>
+</body>
+</html>
