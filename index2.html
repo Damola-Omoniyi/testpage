@@ -9,7 +9,7 @@
 <div id = "data-container"></div>
 
 <script>
-     fetch('http://localhost:8000/api/get-data/')
+     fetch('http://localhost:8000/examdata/api/get-data')
       .then(response => response.json())
       .then(data => {
         const container = document.getElementById('data-container');
