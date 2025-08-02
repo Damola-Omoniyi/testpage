@@ -1,2 +1,2 @@
 # testpage
-testung gthub pages
+testing gthub pages
