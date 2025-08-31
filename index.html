@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --warm-green: #8BAC78;
-            --soft-blue: #A2C4D9;
-            --cream: #F7F3E8;
+            --warm-green: #9BBC88;
+            --soft-blue: #A8C6DB;
+            --cream: #F5F1E6;
             --dark-green: #5A7D5E;
             --dark-blue: #5C80A3;
             --red: #D67F7F;
-            --dark-red: #B86A6A;
-            --light-green: #d8e6d0;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --dark-red: #C46A6A;
+            --light-green: #E2EDD9;
+            --shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            --transition: all 0.2s ease;
         }
 
         * {
@@ -30,40 +30,37 @@
             background-color: var(--cream);
             color: #333;
             min-height: 100vh;
-            padding: 20px;
-            background-image: radial-gradient(#d8e6d0 1.5px, transparent 1.5px);
-            background-size: 25px 25px;
+            padding: 12px;
+            font-size: 15px;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
             background-color: white;
-            border-radius: 20px;
+            border-radius: 14px;
             overflow: hidden;
             box-shadow: var(--shadow);
         }
 
         header {
-            background: linear-gradient(135deg, var(--warm-green) 0%, var(--dark-green) 100%);
-            padding: 25px 20px;
+            background-color: var(--warm-green);
+            padding: 18px 15px;
             text-align: center;
-            position: relative;
         }
 
         h1 {
             color: white;
-            margin-bottom: 25px;
-            font-size: 2.2rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            margin-bottom: 18px;
+            font-size: 1.6rem;
         }
 
         .nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             overflow-x: auto;
-            padding-bottom: 5px;
+            padding-bottom: 3px;
             scrollbar-width: none;
         }
 
@@ -72,42 +69,41 @@
         }
 
         .tab-button {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.25);
             color: white;
             border: none;
-            padding: 12px 20px;
-            border-radius: 50px;
+            padding: 8px 14px;
+            border-radius: 16px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             transition: var(--transition);
             white-space: nowrap;
             flex-shrink: 0;
+            font-size: 0.85rem;
         }
 
         .tab-button:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.35);
         }
 
         .tab-button.active {
             background-color: var(--cream);
             color: var(--dark-green);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .content {
-            padding: 25px;
-            min-height: 450px;
+            padding: 18px;
+            min-height: 380px;
         }
 
         .page {
             display: none;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.3s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .page.active {
@@ -116,25 +112,24 @@
 
         h2 {
             color: var(--dark-green);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--soft-blue);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--soft-blue);
+            font-size: 1.3rem;
         }
 
         .shopping-item, .chore-item {
             display: flex;
             align-items: center;
-            padding: 15px;
-            margin-bottom: 12px;
+            padding: 10px;
+            margin-bottom: 8px;
             background-color: var(--cream);
-            border-radius: 12px;
+            border-radius: 8px;
             transition: var(--transition);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .shopping-item:hover, .chore-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #ece6d6;
         }
 
         .shopping-item {
@@ -153,9 +148,9 @@
         }
 
         .item-quantity {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--dark-blue);
-            margin-top: 4px;
+            margin-top: 2px;
         }
 
         .chore-item {
@@ -164,8 +159,8 @@
         }
 
         .chore-details {
-            margin-left: 40px;
-            font-size: 0.95em;
+            margin-left: 32px;
+            font-size: 0.85em;
             color: var(--dark-blue);
             width: 100%;
             display: flex;
@@ -176,12 +171,13 @@
         .completed-by {
             font-style: italic;
             color: var(--dark-green);
+            font-size: 0.8rem;
         }
 
         input[type="checkbox"] {
-            margin-right: 15px;
-            width: 22px;
-            height: 22px;
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
             accent-color: var(--warm-green);
             cursor: pointer;
             flex-shrink: 0;
@@ -189,14 +185,14 @@
 
         .completed {
             text-decoration: line-through;
-            opacity: 0.7;
+            opacity: 0.6;
         }
 
         .buttons {
-            margin-top: 25px;
+            margin-top: 20px;
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
@@ -204,20 +200,19 @@
             background-color: var(--soft-blue);
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
+            padding: 8px 16px;
+            border-radius: 16px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
+            font-size: 0.9rem;
         }
 
         button:hover {
             background-color: var(--dark-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .clear-button {
@@ -229,51 +224,55 @@
         }
 
         .form-page {
-            padding: 10px;
+            padding: 8px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
+            margin-bottom: 5px;
+            font-weight: 600;
             color: var(--dark-green);
+            font-size: 0.9rem;
         }
 
         input[type="text"], input[type="number"], select {
             width: 100%;
-            padding: 14px;
-            border: 2px solid var(--soft-blue);
-            border-radius: 12px;
-            font-size: 16px;
+            padding: 10px;
+            border: 1px solid var(--soft-blue);
+            border-radius: 8px;
+            font-size: 0.9rem;
             transition: var(--transition);
         }
 
         input[type="text"]:focus, input[type="number"]:focus {
             border-color: var(--warm-green);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(139, 172, 120, 0.2);
         }
 
         .quantity-input {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             align-items: center;
         }
 
         .quantity-input input {
-            max-width: 100px;
+            max-width: 80px;
+        }
+
+        .quantity-input select {
+            flex-grow: 1;
         }
 
         .form-buttons {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 10px;
+            margin-top: 20px;
         }
 
         .cancel-button {
@@ -298,58 +297,55 @@
 
         .completion-info {
             font-style: italic;
-            margin-top: 5px;
+            margin-top: 4px;
             color: var(--dark-green);
-            font-size: 0.9em;
+            font-size: 0.8em;
         }
 
         .empty-message {
             text-align: center;
             color: var(--dark-blue);
             font-style: italic;
-            padding: 30px;
+            padding: 20px;
             background-color: rgba(162, 196, 217, 0.1);
-            border-radius: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
         }
 
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             body {
-                padding: 15px;
+                padding: 10px;
+                font-size: 14px;
             }
             
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
             }
             
             .tab-button {
-                padding: 10px 15px;
-                font-size: 0.9rem;
+                padding: 7px 12px;
+                font-size: 0.8rem;
             }
             
             .content {
-                padding: 20px;
+                padding: 15px;
             }
             
             .shopping-item, .chore-item {
-                padding: 12px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .item-info {
-                width: 100%;
+                padding: 8px;
             }
             
             .chore-details {
                 margin-left: 0;
-                margin-top: 10px;
+                margin-top: 8px;
                 flex-direction: column;
                 align-items: flex-start;
             }
             
             button {
-                padding: 12px 20px;
+                padding: 7px 14px;
+                font-size: 0.85rem;
             }
             
             .form-buttons {
@@ -363,12 +359,12 @@
 
         @media (max-width: 480px) {
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.3rem;
             }
             
             .tab-button {
-                padding: 8px 12px;
-                font-size: 0.8rem;
+                padding: 6px 10px;
+                font-size: 0.75rem;
             }
             
             .buttons {
@@ -381,43 +377,61 @@
             }
             
             .nav-tabs {
-                gap: 5px;
+                gap: 4px;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
             }
         }
 
         .welcome-message {
             text-align: center;
-            margin: 20px 0;
+            margin: 15px 0;
             color: var(--dark-blue);
-            font-size: 1.1em;
+            font-size: 0.95em;
         }
 
         .stats {
             display: flex;
             justify-content: space-around;
-            margin: 25px 0;
+            margin: 20px 0;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
         }
 
         .stat-card {
-            background: linear-gradient(135deg, var(--soft-blue) 0%, var(--dark-blue) 100%);
+            background-color: var(--soft-blue);
             color: white;
-            padding: 15px;
-            border-radius: 12px;
+            padding: 12px;
+            border-radius: 8px;
             text-align: center;
-            min-width: 150px;
+            min-width: 120px;
             box-shadow: var(--shadow);
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         .stat-label {
+            font-size: 0.8rem;
+        }
+        
+        .delete-btn {
+            background: none;
+            border: none;
+            color: var(--red);
+            cursor: pointer;
+            padding: 4px;
             font-size: 0.9rem;
+        }
+        
+        .delete-btn:hover {
+            color: var(--dark-red);
+            background: none;
         }
     </style>
 </head>
@@ -426,9 +440,9 @@
         <header>
             <h1><i class="fas fa-home"></i> Cozy House Manager</h1>
             <div class="nav-tabs">
-                <button class="tab-button active" data-page="shopping-page"><i class="fas fa-shopping-cart"></i> Shopping List</button>
+                <button class="tab-button active" data-page="shopping-page"><i class="fas fa-shopping-cart"></i> Shopping</button>
                 <button class="tab-button" data-page="chores-page"><i class="fas fa-broom"></i> Chores</button>
-                <button class="tab-button" data-page="finished-chores-page"><i class="fas fa-check-circle"></i> Finished Chores</button>
+                <button class="tab-button" data-page="finished-chores-page"><i class="fas fa-check-circle"></i> Completed</button>
             </div>
         </header>
 
@@ -437,7 +451,7 @@
             <div id="shopping-page" class="page active">
                 <h2><i class="fas fa-shopping-cart"></i> Shopping List</h2>
                 <div class="welcome-message">
-                    Add items to your shopping list and mark them as purchased when done
+                    Add items to your shopping list
                 </div>
                 <div id="shopping-list">
                     <!-- Shopping items will be added here dynamically -->
@@ -484,12 +498,12 @@
             <div id="chores-page" class="page">
                 <h2><i class="fas fa-broom"></i> House Chores</h2>
                 <div class="welcome-message">
-                    Manage household chores and assign them to family members
+                    Manage household chores
                 </div>
                 <div class="stats">
                     <div class="stat-card">
                         <div class="stat-number" id="active-chores-count">0</div>
-                        <div class="stat-label">Active Chores</div>
+                        <div class="stat-label">Active</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number" id="completed-chores-count">0</div>
@@ -513,7 +527,7 @@
                         <input type="text" id="chore-name" placeholder="Enter chore name">
                     </div>
                     <div class="form-group">
-                        <label for="assigned-to">Assign To (Person's Name)</label>
+                        <label for="assigned-to">Assign To</label>
                         <input type="text" id="assigned-to" placeholder="Enter name">
                     </div>
                     <div class="form-buttons">
@@ -525,15 +539,15 @@
 
             <!-- Finished Chores Page -->
             <div id="finished-chores-page" class="page">
-                <h2><i class="fas fa-check-circle"></i> Finished Chores</h2>
+                <h2><i class="fas fa-check-circle"></i> Completed Chores</h2>
                 <div class="welcome-message">
-                    Review completed chores and who finished them
+                    Review completed chores
                 </div>
                 <div id="finished-chores-list">
                     <!-- Finished chores will be added here dynamically -->
                 </div>
                 <div class="buttons">
-                    <button id="back-to-active-chores"><i class="fas fa-arrow-left"></i> Back to Active Chores</button>
+                    <button id="back-to-active-chores"><i class="fas fa-arrow-left"></i> Back to Chores</button>
                 </div>
             </div>
         </div>
@@ -631,7 +645,19 @@
                 
                 itemInfo.appendChild(checkbox);
                 itemInfo.appendChild(label);
+                
+                const deleteBtn = document.createElement('button');
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
+                deleteBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    shoppingItems.splice(index, 1);
+                    localStorage.setItem('shoppingItems', JSON.stringify(shoppingItems));
+                    renderShoppingList();
+                });
+                
                 itemElement.appendChild(itemInfo);
+                itemElement.appendChild(deleteBtn);
                 shoppingList.appendChild(itemElement);
             });
         }
@@ -723,7 +749,7 @@
                 details.className = 'chore-details';
                 details.innerHTML = `
                     <span>Assigned to: <strong>${chore.assignedTo}</strong></span>
-                    <button class="delete-chore" data-index="${index}"><i class="fas fa-trash"></i></button>
+                    <button class="delete-btn" data-index="${index}"><i class="fas fa-times"></i></button>
                 `;
                 
                 choreElement.appendChild(itemInfo);
@@ -731,7 +757,7 @@
                 choresList.appendChild(choreElement);
                 
                 // Add event listener to delete button
-                const deleteButton = choreElement.querySelector('.delete-chore');
+                const deleteButton = choreElement.querySelector('.delete-btn');
                 deleteButton.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const index = parseInt(deleteButton.getAttribute('data-index'));
@@ -798,7 +824,7 @@
                 detailsElement.className = 'chore-details';
                 detailsElement.innerHTML = `
                     <span>Assigned to: <strong>${chore.assignedTo}</strong></span>
-                    <button class="delete-finished-chore" data-index="${index}"><i class="fas fa-trash"></i></button>
+                    <button class="delete-btn" data-index="${index}"><i class="fas fa-times"></i></button>
                 `;
                 
                 const completionElement = document.createElement('div');
@@ -812,7 +838,7 @@
                 finishedChoresList.appendChild(choreElement);
                 
                 // Add event listener to delete button
-                const deleteButton = choreElement.querySelector('.delete-finished-chore');
+                const deleteButton = choreElement.querySelector('.delete-btn');
                 deleteButton.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const index = parseInt(deleteButton.getAttribute('data-index'));
