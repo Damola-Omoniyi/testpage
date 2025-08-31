@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cozy House Manager</title>
+    <title>House Manager</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -15,7 +15,7 @@
             --red: #D67F7F;
             --dark-red: #C46A6A;
             --light-green: #E2EDD9;
-            --shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            --shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
             --transition: all 0.2s ease;
         }
 
@@ -30,37 +30,37 @@
             background-color: var(--cream);
             color: #333;
             min-height: 100vh;
-            padding: 12px;
-            font-size: 15px;
+            padding: 16px;
+            font-size: 16px;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
             background-color: white;
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--shadow);
         }
 
         header {
             background-color: var(--warm-green);
-            padding: 18px 15px;
+            padding: 22px 18px;
             text-align: center;
         }
 
         h1 {
             color: white;
-            margin-bottom: 18px;
-            font-size: 1.6rem;
+            margin-bottom: 22px;
+            font-size: 1.8rem;
         }
 
         .nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 6px;
+            gap: 8px;
             overflow-x: auto;
-            padding-bottom: 3px;
+            padding-bottom: 4px;
             scrollbar-width: none;
         }
 
@@ -72,14 +72,14 @@
             background-color: rgba(255, 255, 255, 0.25);
             color: white;
             border: none;
-            padding: 8px 14px;
-            border-radius: 16px;
+            padding: 12px 16px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
             transition: var(--transition);
             white-space: nowrap;
             flex-shrink: 0;
-            font-size: 0.85rem;
+            font-size: 1.2rem;
         }
 
         .tab-button:hover {
@@ -92,8 +92,8 @@
         }
 
         .content {
-            padding: 18px;
-            min-height: 380px;
+            padding: 22px;
+            min-height: 420px;
         }
 
         .page {
@@ -112,19 +112,19 @@
 
         h2 {
             color: var(--dark-green);
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid var(--soft-blue);
-            font-size: 1.3rem;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--soft-blue);
+            font-size: 1.5rem;
         }
 
         .shopping-item, .chore-item {
             display: flex;
             align-items: center;
-            padding: 10px;
-            margin-bottom: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
             background-color: var(--cream);
-            border-radius: 8px;
+            border-radius: 12px;
             transition: var(--transition);
         }
 
@@ -148,9 +148,9 @@
         }
 
         .item-quantity {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: var(--dark-blue);
-            margin-top: 2px;
+            margin-top: 4px;
         }
 
         .chore-item {
@@ -159,8 +159,8 @@
         }
 
         .chore-details {
-            margin-left: 32px;
-            font-size: 0.85em;
+            margin-left: 38px;
+            font-size: 0.95em;
             color: var(--dark-blue);
             width: 100%;
             display: flex;
@@ -171,13 +171,13 @@
         .completed-by {
             font-style: italic;
             color: var(--dark-green);
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
 
         input[type="checkbox"] {
-            margin-right: 12px;
-            width: 18px;
-            height: 18px;
+            margin-right: 16px;
+            width: 22px;
+            height: 22px;
             accent-color: var(--warm-green);
             cursor: pointer;
             flex-shrink: 0;
@@ -189,10 +189,10 @@
         }
 
         .buttons {
-            margin-top: 20px;
+            margin-top: 24px;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
@@ -200,15 +200,16 @@
             background-color: var(--soft-blue);
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 16px;
+            padding: 12px 22px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 5px;
-            font-size: 0.9rem;
+            gap: 8px;
+            font-size: 1rem;
+            min-height: 44px;
         }
 
         button:hover {
@@ -224,27 +225,27 @@
         }
 
         .form-page {
-            padding: 8px;
+            padding: 12px;
         }
 
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: 600;
             color: var(--dark-green);
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         input[type="text"], input[type="number"], select {
             width: 100%;
-            padding: 10px;
-            border: 1px solid var(--soft-blue);
-            border-radius: 8px;
-            font-size: 0.9rem;
+            padding: 14px;
+            border: 2px solid var(--soft-blue);
+            border-radius: 12px;
+            font-size: 1rem;
             transition: var(--transition);
         }
 
@@ -255,12 +256,12 @@
 
         .quantity-input {
             display: flex;
-            gap: 8px;
+            gap: 12px;
             align-items: center;
         }
 
         .quantity-input input {
-            max-width: 80px;
+            max-width: 100px;
         }
 
         .quantity-input select {
@@ -271,8 +272,8 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 14px;
+            margin-top: 24px;
         }
 
         .cancel-button {
@@ -297,55 +298,55 @@
 
         .completion-info {
             font-style: italic;
-            margin-top: 4px;
+            margin-top: 6px;
             color: var(--dark-green);
-            font-size: 0.8em;
+            font-size: 0.9em;
         }
 
         .empty-message {
             text-align: center;
             color: var(--dark-blue);
             font-style: italic;
-            padding: 20px;
+            padding: 26px;
             background-color: rgba(162, 196, 217, 0.1);
-            border-radius: 8px;
-            font-size: 0.9rem;
+            border-radius: 12px;
+            font-size: 1rem;
         }
 
         /* Mobile responsiveness */
         @media (max-width: 768px) {
             body {
-                padding: 10px;
-                font-size: 14px;
+                padding: 14px;
+                font-size: 16px;
             }
             
             h1 {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
             
             .tab-button {
-                padding: 7px 12px;
-                font-size: 0.8rem;
+                padding: 10px 14px;
+                font-size: 1.1rem;
             }
             
             .content {
-                padding: 15px;
+                padding: 20px;
             }
             
             .shopping-item, .chore-item {
-                padding: 8px;
+                padding: 12px;
             }
             
             .chore-details {
                 margin-left: 0;
-                margin-top: 8px;
+                margin-top: 10px;
                 flex-direction: column;
                 align-items: flex-start;
             }
             
             button {
-                padding: 7px 14px;
-                font-size: 0.85rem;
+                padding: 12px 20px;
+                font-size: 0.95rem;
             }
             
             .form-buttons {
@@ -359,12 +360,12 @@
 
         @media (max-width: 480px) {
             h1 {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
             
             .tab-button {
-                padding: 6px 10px;
-                font-size: 0.75rem;
+                padding: 10px 12px;
+                font-size: 1rem;
             }
             
             .buttons {
@@ -377,19 +378,19 @@
             }
             
             .nav-tabs {
-                gap: 4px;
+                gap: 6px;
             }
             
             h2 {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
         }
 
         .welcome-message {
             text-align: center;
-            margin: 15px 0;
+            margin: 18px 0;
             color: var(--dark-blue);
-            font-size: 0.95em;
+            font-size: 1.05em;
         }
 
         .stats {
@@ -397,27 +398,28 @@
             justify-content: space-around;
             margin: 20px 0;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .stat-card {
             background-color: var(--soft-blue);
             color: white;
-            padding: 12px;
+            padding: 12px 16px;
             border-radius: 8px;
             text-align: center;
-            min-width: 120px;
+            min-width: 100px;
+            width: 130px;
             box-shadow: var(--shadow);
         }
 
         .stat-number {
             font-size: 1.5rem;
             font-weight: bold;
-            margin-bottom: 3px;
+            margin-bottom: 4px;
         }
 
         .stat-label {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
         
         .delete-btn {
@@ -425,8 +427,8 @@
             border: none;
             color: var(--red);
             cursor: pointer;
-            padding: 4px;
-            font-size: 0.9rem;
+            padding: 6px;
+            font-size: 1rem;
         }
         
         .delete-btn:hover {
@@ -438,11 +440,11 @@
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-home"></i> Cozy House Manager</h1>
+            <h1><i class="fas fa-home"></i> House Manager</h1>
             <div class="nav-tabs">
-                <button class="tab-button active" data-page="shopping-page"><i class="fas fa-shopping-cart"></i> Shopping</button>
-                <button class="tab-button" data-page="chores-page"><i class="fas fa-broom"></i> Chores</button>
-                <button class="tab-button" data-page="finished-chores-page"><i class="fas fa-check-circle"></i> Completed</button>
+                <button class="tab-button active" data-page="shopping-page" title="Shopping List"><i class="fas fa-shopping-cart"></i></button>
+                <button class="tab-button" data-page="chores-page" title="Chores"><i class="fas fa-broom"></i></button>
+                <button class="tab-button" data-page="finished-chores-page" title="Completed Chores"><i class="fas fa-check-circle"></i></button>
             </div>
         </header>
 
@@ -667,7 +669,7 @@
             showPage('add-item-page');
         });
 
-        document.getElementById('cancel-add-item').addEventListener('click', () => {
+        document.getElementById('cancel-add-item').add.addEventListener('click', () => {
             showPage('shopping-page');
         });
 
