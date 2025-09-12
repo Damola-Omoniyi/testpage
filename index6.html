@@ -4,94 +4,325 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Add Task - Studyo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
     body {
-      background-color: black;
+      background-color: #121212;
       color: white;
       font-family: Arial, sans-serif;
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      padding: 20px;
     }
 
-    h1 {
-      font-size: 40px;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 16px;
+      margin-bottom: 10px;
+    }
+
+    .back-button {
+      position: absolute;
+      left: 16px;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background-color 0.2s;
+    }
+
+    .back-button:hover {
+      background-color: #2c2c2c;
+    }
+
+    .logo {
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 28px;
+      color: white;
       text-align: center;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      width: 300px;
+    .form-container {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 450px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
-    input, select, textarea, button {
-      padding: 10px;
-      margin-top: 30px;
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px;
       font-size: 16px;
       border-radius: 10px;
-      border: none;
+      border: 2px solid #333;
+      background-color: #2c2c2c;
+      color: white;
+      font-family: Arial, sans-serif;
+      transition: border-color 0.3s;
+    }
+
+    /* Task Name - Studyo Blue highlight */
+    #taskName:focus {
+      outline: none;
+      border-color: #003366;
+    }
+
+    /* Description - Studyo Blue highlight */
+    #description:focus {
+      outline: none;
+      border-color: #003366;
+    }
+
+    /* Deadline - Red highlight */
+    #deadline:focus {
+      outline: none;
+      border-color: #ff4d4d;
     }
 
     textarea {
       resize: vertical;
-      min-height: 100px;
-      font-family: Arial, sans-serif;
+      min-height: 120px;
     }
 
     button {
+      width: 100%;
+      padding: 16px;
       background-color: #003366;
       color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      margin-top: 40px;
-      margin-bottom: 30px;
+      margin-top: 10px;
     }
 
     button:hover {
-      background-color: #3a7ccc;
+      background-color: #004d99;
+    }
+
+    .urgency-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 5px;
+    }
+
+    .urgency-btn {
+      padding: 12px;
+      text-align: center;
+      border-radius: 8px;
+      background-color: #2c2c2c;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+      font-weight: bold; /* Added bold text for urgency levels */
+    }
+
+    .urgency-btn:hover {
+      background-color: #3c3c3c;
+    }
+
+    /* Only border changes for selected urgency */
+    .urgency-btn.selected {
+      border-color: #003366;
+      background-color: #2c2c2c;
+    }
+
+    .low-urgency {
+      color: #4CAF50;
+    }
+
+    .medium-urgency {
+      color: #ffaa33;
+    }
+
+    .high-urgency {
+      color: #ff4d4d;
     }
 
     @media (max-width: 480px) {
-      form {
-        width: 90%;
-        padding: 10px 30px;
+      body {
+        padding: 10px;
+        justify-content: flex-start;
       }
-
+      
+      .form-container {
+        padding: 20px;
+      }
+      
+      .header {
+        margin-bottom: 5px;
+      }
+      
+      .logo {
+        font-size: 24px;
+      }
+      
       input, select, textarea, button {
-        font-size: 18px;
-        padding: 12px;
-        margin-top: 20px;
+        padding: 16px;
+        font-size: 16px;
       }
+    }
 
-      textarea {
-        min-height: 120px;
-      }
+    /* Date input styling */
+    input[type="date"] {
+      position: relative;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+      cursor: pointer;
+    }
+
+    /* Form validation styles */
+    input:invalid, select:invalid, textarea:invalid {
+      border-color: #ff4d4d;
+    }
+
+    input:valid, select:valid, textarea:valid {
+      border-color: #4CAF50;
     }
   </style>
 </head>
 <body>
-  <form>
-    <h1>Studyo</h1>
+  <div class="header">
+    <button class="back-button" onclick="window.history.back()">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <div class="logo">Studyo</div>
+  </div>
 
-    <input type="text" id="taskName" name="taskName" placeholder="Task Name" required />
+  <div class="form-container">
+    <h1>Add New Task</h1>
+    
+    <form id="taskForm">
+      <div class="form-group">
+        <label for="taskName">Task Name</label>
+        <input type="text" id="taskName" name="taskName" placeholder="Enter task name" required />
+      </div>
 
-    <input type="date" id="startDate" name="startDate" placeholder="Start Date" required />
+      <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input type="date" id="startDate" name="startDate" required />
+      </div>
 
-    <input type="date" id="deadline" name="deadline" placeholder="Deadline" required />
+      <div class="form-group">
+        <label for="deadline">Deadline</label>
+        <input type="date" id="deadline" name="deadline" required />
+      </div>
 
-    <select id="urgency" name="urgency" required>
-      <option value="" disabled selected>Urgency</option>
-      <option value="Low">Low</option>
-      <option value="Medium">Medium</option>
-      <option value="High">High</option>
-    </select>
+      <div class="form-group">
+        <label>Urgency</label>
+        <div class="urgency-options">
+          <div class="urgency-btn low-urgency" data-value="Low">Low</div>
+          <div class="urgency-btn medium-urgency" data-value="Medium">Medium</div>
+          <div class="urgency-btn high-urgency" data-value="High">High</div>
+        </div>
+        <input type="hidden" id="urgency" name="urgency" required />
+      </div>
 
-    <textarea id="description" name="description" placeholder="Task Description" required></textarea>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Enter task description" required></textarea>
+      </div>
 
-    <button type="submit">Add Task</button>
-  </form>
+      <button type="submit">Add Task</button>
+    </form>
+  </div>
+
+  <script>
+    // Set today's date as the default for start date
+    document.getElementById('startDate').valueAsDate = new Date();
+    
+    // Set deadline to tomorrow by default
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    document.getElementById('deadline').valueAsDate = tomorrow;
+    
+    // Urgency selection
+    const urgencyButtons = document.querySelectorAll('.urgency-btn');
+    const urgencyInput = document.getElementById('urgency');
+    
+    // Set Medium as default selected
+    urgencyButtons[1].classList.add('selected');
+    urgencyInput.value = 'Medium';
+    
+    urgencyButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        urgencyButtons.forEach(btn => btn.classList.remove('selected'));
+        button.classList.add('selected');
+        urgencyInput.value = button.getAttribute('data-value');
+      });
+    });
+    
+    // Form validation
+    document.getElementById('taskForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simple validation
+      if (!urgencyInput.value) {
+        alert('Please select an urgency level');
+        return;
+      }
+      
+      // In a real app, this would submit the form data
+      alert('Task added successfully!');
+      this.reset();
+      
+      // Reset urgency selection
+      urgencyButtons.forEach(btn => btn.classList.remove('selected'));
+      urgencyButtons[1].classList.add('selected');
+      urgencyInput.value = 'Medium';
+      
+      // Reset dates to defaults
+      document.getElementById('startDate').valueAsDate = new Date();
+      const newTomorrow = new Date();
+      newTomorrow.setDate(newTomorrow.getDate() + 1);
+      document.getElementById('deadline').valueAsDate = newTomorrow;
+    });
+  </script>
 </body>
 </html>
